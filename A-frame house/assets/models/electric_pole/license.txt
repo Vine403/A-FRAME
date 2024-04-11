@@ -1,0 +1,11 @@
+Model Information:
+* title:	Electric Pole
+* source:	https://sketchfab.com/3d-models/electric-pole-a2d5d63f6e2b41e1978f928737fef063
+* author:	Baidhar Hembram (https://sketchfab.com/hembramten)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Electric Pole" (https://sketchfab.com/3d-models/electric-pole-a2d5d63f6e2b41e1978f928737fef063) by Baidhar Hembram (https://sketchfab.com/hembramten) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

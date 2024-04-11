@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/aframe.min.js"></script>
+    <script src="../script/ada-water.js"></script>
+</head>
+<body>
+<a-scene>
+      
+      <script>
+        AFRAME.registerComponent('custom-controls', {
+            init: function () {
+                this.onKeyDown = this.onKeyDown.bind(this);
+            },
+        
+            play: function () {
+                window.addEventListener('keydown', this.onKeyDown);
+            },
+        
+            pause: function () {
+                window.removeEventListener('keydown', this.onKeyDown);
+            },
+        
+            onKeyDown: function (event) {
+                var position;
+        
+                switch (event.keyCode) {
+                    case 69: // E key
+                        position = this.el.getAttribute('position');
+                        position.y += 1;
+                        this.el.setAttribute('position', position);
+                        break;
+                    case 81: // Q key
+                        position = this.el.getAttribute('position');
+                        position.y -= 1;
+                        this.el.setAttribute('position', position);
+                        break;
+                }
+            }
+        });
+
+</script>
+
+      <a-assets>
+        <a-asset-item id="house" src="../assets/models/villa/scene.gltf"></a-asset-item>
+        <a-asset-item id="tree" src="../assets/models/tree/scene.gltf"></a-asset-item>
+        <a-asset-item id="pole" src="../assets/models/electric_pole/scene.gltf"></a-asset-item>
+        <a-asset-item id="light" src="../assets/models/lightpole/scene.gltf"></a-asset-item>
+        <a-asset-item id="chair" src="../assets/models/chair/scene.gltf"></a-asset-item>
+        <a-asset-item id="car" src="../assets/models/Dodge/scene.gltf"></a-asset-item>
+        <a-asset-item id="micro" src="../assets/models/microwave/scene.gltf"></a-asset-item>
+        <a-asset-item id="toast" src="../assets/models/toast/scene.gltf"></a-asset-item>
+        <a-asset-item id="bicycle" src="../assets/models/Bike/scene.gltf"></a-asset-item>
+        <img id="ground" src="../assets/texture/lawn.jpeg">
+        <img id="floor" src="../assets/texture/bricks.jpg">
+        <img id="sky" src="../assets/texture/sunset.jpeg">
+        <img id="water" src="../assets/texture/Dihydrogen oxiide.jpeg">
+        <img id="decor" src="../assets/texture/d6e07b712ff9bdf6e672f08d2e0ef70c.jpg">
+
+      </a-assets>
+      
+      <!-- Entities using the loaded assets -->
+      <a-entity gltf-model="#house" position="45 -0.9 20" rotation="0 5 0" scale="2.0 3.0 2.0" ></a-entity>
+      <a-entity gltf-model="#tree" position="-20 -0.818 -25" rotation="0 5 0" scale="2.1 2.1 2.1"></a-entity>
+      <a-entity gltf-model="#tree" position="-20 -0.818 -15" rotation="0 5 0" scale="2.1 2.1 2.1"></a-entity>
+      <a-entity gltf-model="#tree" position="50 -1.599 -15" rotation="0 5 0" scale="2.0 2.0 2.0"></a-entity>
+      <a-entity gltf-model="#pole" position="-30 0 -25" rotation="0 5 0" scale="0.02 0.02 0.02"></a-entity>
+      <a-entity gltf-model="#light" position="-10 -2 -12.0" rotation="0 5 0" scale="4.0 8.0 4.0"></a-entity>
+      <a-entity gltf-model="#light" position="41 -1 -30.0" rotation="0 5 0" scale="4.0 8.0 4.0"></a-entity>
+      <a-entity gltf-model="#chair" position="-10 0 -18.442" rotation="0 5 0" scale="0.02 0.02 0.05"></a-entity>
+      <a-entity gltf-model="#car" position="24 0.01 -17" rotation="0 0 0" scale="3 3.5 2.5"></a-entity>
+      <a-entity gltf-model="#micro" position="16 3.800 -50" rotation="0 -95 0" scale="0.9 0.9 0.9"></a-entity>
+      <a-entity gltf-model="#toast" position="19 4.8 -50" rotation="0 -95 0" scale="0.8 0.8 0.8"></a-entity>
+      <a-entity gltf-model="#bicycle" position="19.790 0.327 -21.748" rotation="0 5 0" scale="0.17 0.17 0.17"></a-entity>
+
+      <!-- Lighting -->
+      <a-entity position="0 10 0">
+        <a-light type="ambient" intensity="0.7" color="#FFFFFF" distance="20" target="#house2"></a-light>
+      </a-entity>
+      <a-light type="directional" intensity="0.3" color="#ffcc00" position="10 -5 5 "></a-light>
+      <a-light type="ambient" intensity="0.8" color="#FFFFFF" position="-10 -2 -12.0"></a-light>
+      <a-light type="ambient" intensity="0.02" color="#FFFFFF" position="41 -1 -30.0"></a-light>
+      <a-light type="point" intensity="0.3" color="#FFFFFF" position="24 0.01 -17"></a-light>
+
+      <!-- Create the ground -->
+      <a-plane position="0 -0.779 -20" rotation="-90 0 0" width="15" height="15" src="#floor" repeat="5 5" static-body></a-plane>
+
+      <!-- Create the walls of the pool -->
+      <a-box position="0 0.066 -23" width="10" height="2.5" depth="0.1" src="#floor" static-body></a-box>
+      <a-box position="0 0.066 -13" width="10" height="2.5" depth="0.1" src="#floor" static-body></a-box>
+      <a-box position="-5 0.066 -18" width="0.1" height="2.5" depth="10" src="#floor" static-body></a-box>
+      <a-box position="5 0.066 -18" width="0.1" height="2.5" depth="10" src="#floor" static-body></a-box>
+
+      <!-- Create the water in the pool -->
+      <a-plane width="9" height="8" position="0 1 -18" src="#water" rotation="-90 0 0"></a-plane>
+      <a-water opacity="50" side="double" width="10" height="10" base-color="lightblue" foam-color="blue" repeat="2" voronoi-points="10" rotation="90 0 0" position="0 0.95 -18"></a-water>
+      
+      <!-- GROUND -->
+      <a-plane rotation="-90 0 0" scale="400 400 400" material="shader: flat; src: #ground; repeat:10 10" position="0 -1 0"></a-plane>
+
+      <!-- SKY -->
+      <a-sky src="#sky" radius="400" side="double"></a-sky>
+
+      <a-entity position="0 3 0">
+        <a-camera id="camera" wasd-controls="acceleration: 200" look-controls custom-controls>
+        </a-camera>
+      </a-entity>
+      
+    </a-scene>
+</body>
+</html>

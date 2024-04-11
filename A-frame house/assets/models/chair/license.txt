@@ -1,0 +1,11 @@
+Model Information:
+* title:	Plastic lounge chair
+* source:	https://sketchfab.com/3d-models/plastic-lounge-chair-4b7ac7b3a92d40849a1005b74e26be1c
+* author:	RunemarkStudio (https://sketchfab.com/runemarkstudio)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Plastic lounge chair" (https://sketchfab.com/3d-models/plastic-lounge-chair-4b7ac7b3a92d40849a1005b74e26be1c) by RunemarkStudio (https://sketchfab.com/runemarkstudio) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
